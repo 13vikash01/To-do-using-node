@@ -1,0 +1,44 @@
+<%- include('partials/header'); -%>
+<div class="card">
+
+   
+
+    <div class="card-body">
+        <h4>Todo List</h4>
+
+        <div class="row col-md-6 col-md-offset-2 custyle">
+           
+            <table class="table table-striped custab display">
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Task CreatedAt</th>
+                        <th>Mark Complete</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <% todos.forEach(function(todo){ %>
+                    <tr> 
+                        <td><%= todo.text %></td>
+                        <td><%= todo.Created %></td>
+                        <td><button class="btn btn-primary">Complete</button></td>
+                         <td><a class="btn btn-primary" href="/todo/edit/<%= todo._id%>">Update</a></td> 
+                       <td>
+                        <form id="delete" action="/delete/<%= todo._id%>?_method=DELETE" , method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                           </form>
+
+                       </td> 
+                    </tr> 
+                    <%})%>
+                </tbody>
+                
+            </table>
+           
+        </div>
+    </div>
+</div>
+<%- include('partials/footer'); -%>

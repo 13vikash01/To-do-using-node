@@ -11,10 +11,12 @@ app.use(express.static(__dirname + '/public'));
 
 app.set("view engine","ejs");
 
+var   indexRoutes       =   require("./routes/index")
+
 //DATABASE SETUP
 const mongoose = require('mongoose');
 const { Db } = require('mongodb');
-mongoose.connect('mongodb://localhost:27017/todo', {
+mongoose.connect('mongodb://localhost:27017/todo_v1', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -24,7 +26,7 @@ mongoose.connect('mongodb://localhost:27017/todo', {
 
 
 //BASIC ROUTE 
-
+app.use(indexRoutes);
 
 app.listen(5555,()=>{
       console.log("server running on 5555!")

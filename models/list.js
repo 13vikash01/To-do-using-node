@@ -1,7 +1,10 @@
+
 var mongoose = require("mongoose");
+
 var listSchema = new mongoose.Schema({
-    body:String,
-    Created:{type: Date,default:Date.now}
+    text:{type:String},
+    Created:{type: Date,default:Date.now},
+
 })
  
 
