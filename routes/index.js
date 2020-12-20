@@ -10,9 +10,11 @@ router.get('/',(req,res)=>{
     res.redirect("/todo");
 })
 
+//Post.find({}).sort({Created:-1}).exec((err,data)=>
 
 router.get('/todo',(req,res)=>{
-    list.find({},(err,todos)=>{
+    list.find({}).sort({Done:1}).exec((err,todos)=>{
+    // list.find({},(err,todos)=>{
         if(err)
         {
           console.log(err)
@@ -103,8 +105,17 @@ router.put('/todo/complete/:id',(req,res)=>{
         }
         else
         {
-         //foundtodo.finished = timeStamp;
-         res.redirect("/todo");
+         foundtodo.Finished = Date.now();
+         foundtodo.Done = true;
+         foundtodo.save((err,todo)=>{
+            if(err)
+            {
+                res.send(err)
+            }
+            else{
+                res.redirect("/todo");
+            }
+        })
         }
     })
 })

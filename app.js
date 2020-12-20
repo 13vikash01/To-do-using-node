@@ -16,7 +16,7 @@ var   indexRoutes       =   require("./routes/index")
 //DATABASE SETUP
 const mongoose = require('mongoose');
 const { Db } = require('mongodb');
-mongoose.connect('mongodb://localhost:27017/todo_v1', {
+mongoose.connect('mongodb://localhost:27017/todo_v2', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
