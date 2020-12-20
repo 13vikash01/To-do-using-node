@@ -10,7 +10,7 @@ router.get('/',(req,res)=>{
     res.redirect("/todo");
 })
 
-//Post.find({}).sort({Created:-1}).exec((err,data)=>
+
 
 router.get('/todo',(req,res)=>{
     list.find({}).sort({Done:1}).exec((err,todos)=>{
